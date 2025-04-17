@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado Proyecto Tracking</title>
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/simple.min.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+        }
+        .reveal {
+            font-size: 28px;
+            color: var(--primary);
+        }
+        .reveal h1, .reveal h2, .reveal h3 {
+            color: var(--primary);
+            text-transform: none;
+            margin-bottom: 0.5em;
+        }
+        .reveal section img {
+            border: none;
+            box-shadow: none;
+            max-height: 400px;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .progress-bar {
+            height: 25px;
+            background: #ecf0f1;
+            border-radius: 5px;
+            margin: 10px 0;
+            position: relative;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 5px;
+            background: var(--secondary);
+            position: relative;
+        }
+        .progress-fill::after {
+            content: attr(data-progress);
+            position: absolute;
+            right: 10px;
+            color: white;
+            font-weight: bold;
+        }
+        .icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        .mermaid {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .dashboard-preview {
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        /* Corrección para mermaid */
+        .mermaid .label {
+            color: var(--primary) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- PORTADA -->
+            <section data-transition="fade">
+                <h1><i class="fas fa-map-marked-alt"></i> Sistema de Tracking</h1>
+                <h3>Estado Actual del Proyecto</h3>
+            </section>
+
+            <!-- ESTRUCTURA DEL SISTEMA -->
+            <section>
+                <section>
+                    <h2><i class="fas fa-sitemap icon"></i>Lógica del Negocio</h2>
+                    <div class="mermaid">
+                        graph TD
+                            A[Empresa] --> B[Empleados]
+                            B --> C{{Tipo}}
+                            C --> D[Por Objetivos]
+                            C --> E[Por Tareas]
+                            D --> F[Visita farmacias/locales]
+                            D --> G[Venta productos]
+                            E --> H[Tareas específicas]
+                            E --> I[Múltiples empleados]
+                            F --> J[Reportes]
+                            G --> J
+                            H --> J
+                            I --> J
+                            J --> K[Panel Administración]
+                            K --> L[Estadísticas]
+                            K --> M[Históricos]
+                            K --> N[Gestión]
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-users icon"></i>Tipos de Empleados</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="card">
+                            <h4><i class="fas fa-bullseye icon"></i>Por Objetivos</h4>
+                            <ul>
+                                <li>Asignación de farmacias</li>
+                                <li>Productos por categoría</li>
+                                <li>Autogestión de rutas</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h4><i class="fas fa-tasks icon"></i>Por Tareas</h4>
+                            <ul>
+                                <li>Asignación directa</li>
+                                <li>Checklist de actividades</li>
+                                <li>Equipos colaborativos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- ESTADO ACTUAL -->
+            <section>
+                <section>
+                    <h2><i class="fas fa-check-circle icon"></i>Desarrollado Actualmente</h2>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="card">
+                            <h4><i class="fas fa-database icon"></i>Base de Datos</h4>
+                            <ul>
+                                <li>Modelo completo</li>
+                                <li>Empresas/Empleados</li>
+                                <li>Ubicaciones/Productos</li>
+                            </ul>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%;" data-progress="100%"></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h4><i class="fas fa-cogs icon"></i>Lógica Principal</h4>
+                            <ul>
+                                <li>Reglas de negocio</li>
+                                <li>API de integración</li>
+                                <li>Autenticación</li>
+                            </ul>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%;" data-progress="100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-tachometer-alt icon"></i>Panel de Administración</h3>
+                    <img src="images/dashboard.png"  class="dashboard-preview">
+                </section>
+            </section>
+
+            <!-- PROCESOS PENDIENTES -->
+            <section>
+                <section>
+                    <h2><i class="fas fa-list-ul icon"></i>Procesos por Implementar</h2>
+                    <div class="mermaid">
+                        flowchart TB
+                            subgraph App Móvil
+                                A[Login] --> B[GPS Tiempo Real]
+                                B --> C[Registro Reportes]
+                                C --> D[Sincronización]
+                            end
+
+                            subgraph Panel Web
+                                E[Mapa Interactivo] --> F[Gestión Tareas]
+                                F --> G[Reportes Avanzados]
+                                G --> H[Alertas]
+                            end
+                    </div>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-code-branch icon"></i>Flujo Completo</h3>
+                    <div class="mermaid">
+                        sequenceDiagram
+                            participant Empleado
+                            participant App
+                            participant Servidor
+                            participant Panel
+
+                            Empleado->>App: Marca entrada
+                            App->>Servidor: Activa GPS
+                            Servidor->>Panel: Actualiza estado
+                            loop Tareas/Objetivos
+                                Empleado->>App: Registra actividad
+                                App->>Servidor: Envía reporte
+                                Servidor->>Panel: Actualiza datos
+                            end
+                            Empleado->>App: Marca salida
+                            App->>Servidor: Finaliza jornada
+                    </div>
+                </section>
+            </section>
+
+            <!-- PLANIFICACIÓN -->
+            <section>
+                    <section>
+                        <h2><i class="fas fa-calendar-alt icon"></i>Cronograma</h2>
+                        <div class="mermaid">
+                            gantt
+                                title Planificación del Proyecto
+                                dateFormat  YYYY-MM-DD
+                                axisFormat  %d/%m
+
+                                section Panel Web
+                                Vista del dashboard   :active, start_web, 2025-04-16, 5d
+                                Vista de empleados    :emp_map, after start_web, 5d
+                                Gestión de tareas             :task_mgmt, after emp_map, 8d
+                                Reportes personalizados       :reports, after task_mgmt, 8d
+                                Alertas de actividad          :alerts, after reports, 5d
+
+                                section App Móvil
+                                Interfaz            :ui_mobile, 2025-05-13, 6d
+                                GPS en tiempo real   :gps_track, after ui_mobile, 8d
+                                Envío de reportes :reports_mobile, after gps_track, 8d
+
+                                section Pruebas
+                                Pruebas: tests, 2025-05-28, 4d
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3><i class="fas fa-tasks icon"></i>Detalle de Tareas</h3>
+                        <table style="font-size: 0.7em;">
+                            <thead>
+                                <tr>
+                                    <th>Área</th>
+                                    <th>Tarea</th>
+                                    <th>Prioridad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Panel Web</td>
+                                    <td>Crear una vista principal con estadísticas generales de actividad y seguimiento de empleados.</td>
+                                    <td><i class="fas fa-exclamation-circle" style="color: #e74c3c;"></i> Alta</td>
+                                </tr>
+                                <tr>
+                                    <td>Panel Web</td>
+                                    <td>Mostrar en el mapa la ubicación de los empleados en tiempo real.</td>
+                                    <td><i class="fas fa-exclamation-circle" style="color: #e74c3c;"></i> Alta</td>
+                                </tr>
+                                <tr>
+                                    <td>Panel Web</td>
+                                    <td>Permitir asignar tareas específicas a empleados desde el panel con seguimiento de estado.</td>
+                                    <td><i class="fas fa-exclamation-circle" style="color: #e74c3c;"></i> Alta</td>
+                                </tr>
+                                <tr>
+                                    <td>Panel Web</td>
+                                    <td>Generar reportes automáticos por fecha, ubicación y tipo de actividad.</td>
+                                    <td><i class="fas fa-info-circle" style="color: #3498db;"></i> Media</td>
+                                </tr>
+                                <tr>
+                                    <td>Panel Web</td>
+                                    <td>Enviar alertas al detectar inactividad prolongada o patrones irregulares.</td>
+                                    <td><i class="fas fa-info-circle" style="color: #3498db;"></i> Media</td>
+                                </tr>
+                                <tr>
+                                    <td>App Móvil</td>
+                                    <td>Diseñar una interfaz simple para que el empleado marque inicio/fin de jornada y registre su actividad.</td>
+                                    <td><i class="fas fa-exclamation-circle" style="color: #e74c3c;"></i> Alta</td>
+                                </tr>
+                                <tr>
+                                    <td>App Móvil</td>
+                                    <td>Capturar ubicación GPS durante la jornada para seguimiento continuo.</td>
+                                    <td><i class="fas fa-exclamation-circle" style="color: #e74c3c;"></i> Alta</td>
+                                </tr>
+                                <tr>
+                                    <td>App Móvil</td>
+                                    <td>Enviar los registros de actividad al sistema con opción de trabajar sin conexión y sincronizar luego.</td>
+                                    <td><i class="fas fa-info-circle" style="color: #3498db;"></i> Media</td>
+                                </tr>
+                                <tr>
+                                    <td>Pruebas</td>
+                                    <td>Simular jornadas reales para validar flujo completo de uso desde login hasta reportes.</td>
+                                    <td><i class="fas fa-check-circle" style="color: #2ecc71;"></i> Baja</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </section>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.3/mermaid.min.js"></script>
+    <script>
+        // Configuración Reveal
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: true,
+            transition: 'slide',
+            plugins: [RevealMarkdown],
+            width: '90%',
+            height: '90%'
+        });
+
+        // Configuración Mermaid
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            },
+            sequence: {
+                showSequenceNumbers: true
+            },
+            gantt: {
+                barHeight: 25,
+                fontSize: 14
+            }
+        });
+
+        // Inicializar Mermaid
+        function initMermaid() {
+            document.querySelectorAll('.mermaid').forEach(el => {
+                if(el.getAttribute('data-processed') !== 'true') {
+                    mermaid.init(undefined, el);
+                    el.setAttribute('data-processed', 'true');
+                }
+            });
+        }
+
+        // Eventos
+        Reveal.on('ready', initMermaid);
+        Reveal.on('slidechanged', initMermaid);
+
+        // Fecha actual
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('es-ES', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
+    </script>
+</body>
+</html>
